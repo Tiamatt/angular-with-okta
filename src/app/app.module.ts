@@ -1,15 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { OKTA_CONFIG,OktaAuthModule, } from '@okta/okta-angular';
+// core custom objects
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
-import {
-  OKTA_CONFIG,
-  OktaAuthModule,
-} from '@okta/okta-angular';
-import { MyProtectedComponent } from './my-protected/my-protected.component';
-
+// custom objects
+import { LogInComponent, SignUpComponent } from './auth/index';
+import { DashboardComponent, WelcomeComponent } from './main/index';
+import { UserDetailsComponent, UserBioComponent } from './user-profile/index';
 
 const config = {
   clientId: '{clientId}',
@@ -22,7 +20,9 @@ const config = {
 @NgModule({
   declarations: [
     AppComponent,
-    MyProtectedComponent
+    LogInComponent, SignUpComponent,
+    DashboardComponent, WelcomeComponent,
+    UserDetailsComponent, UserBioComponent,
   ],
   imports: [
     BrowserModule,

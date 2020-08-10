@@ -15,7 +15,7 @@ const routes: Routes = [
     component: OktaCallbackComponent,
   },
   // auth section
-  { path: '', pathMatch: 'full', redirectTo: 'log-in'},
+  { path: '', pathMatch: 'full', redirectTo: '/log-in'},
   { path: 'log-in', component: LogInComponent, },
   { path: 'sign-up', component: SignUpComponent, },
   // main section

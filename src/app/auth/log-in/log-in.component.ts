@@ -7,22 +7,25 @@ import { OktaAuthService } from '@okta/okta-angular';
   styleUrls: ['./log-in.component.scss']
 })
 export class LogInComponent implements OnInit {
+  public isAuthenticated: boolean = false;
 
-  isAuthenticated: boolean;
-
-  constructor(public oktaAuth: OktaAuthService) {
+  constructor(public oktaAuthService: OktaAuthService) {
     // Subscribe to authentication state changes
-    this.oktaAuth.$authenticationState.subscribe(
-      (isAuthenticated: boolean) => this.isAuthenticated = isAuthenticated
+    this.oktaAuthService.$authenticationState.subscribe(
+      (isAuthenticated: boolean) => { 
+        this.isAuthenticated = isAuthenticated;
+      }
     );
   }
 
   async ngOnInit() {
-    this.isAuthenticated = await this.oktaAuth.isAuthenticated();
+    this.isAuthenticated = await this.oktaAuthService.isAuthenticated();
   }
 
-  login() {
-    this.oktaAuth.loginRedirect('/welcome');
+  public onLogin() {
+    this.oktaAuthService.loginRedirect('/sign-up');
   }
+
+  public onLogout() { }
 
 }

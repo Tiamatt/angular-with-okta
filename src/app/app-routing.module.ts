@@ -19,8 +19,8 @@ const routes: Routes = [
   { path: 'log-in', component: LogInComponent, },
   { path: 'sign-up', component: SignUpComponent, },
   // main section
-  { path: 'dashboard', component: DashboardComponent, canActivate: [OktaAuthGuard], },
-  { path: 'welcome', component: WelcomeComponent, canActivate: [OktaAuthGuard], },
+  { path: 'dashboard', component: DashboardComponent, },
+  { path: 'welcome', component: WelcomeComponent, },
   // user-profile section
   { path: 'user-details', component: UserDetailsComponent, canActivate: [OktaAuthGuard], },
   { path: 'user-bio', component: UserBioComponent, canActivate: [OktaAuthGuard], },

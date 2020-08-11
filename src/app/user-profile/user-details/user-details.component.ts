@@ -23,8 +23,7 @@ export class UserDetailsComponent implements OnInit, OnDestroy {
   ) { }
 
   private async populateUserProfileNames() {
-    
-   // let apiUrl = 'https://localhost:44349/api/messages';
+    this.userProfileNames = null;
 
     let apiUrl = 'https://localhost:44375/api/userProfile/names';
     const accessToken = await this.oktaAuthService.getAccessToken();
@@ -32,14 +31,12 @@ export class UserDetailsComponent implements OnInit, OnDestroy {
       headers: {
         Authorization: 'Bearer ' + accessToken,
       }
-    };
-
-    console.log({ "header_populateUserProfileNames": header });
+    }
 
     this.httpClient.get(apiUrl, header).subscribe(
-      (data: any) => {
-        console.log({ "api_result_populateUserProfileNames": data });
-        this.userProfileNames = data;
+      (result: string[]) => {
+        console.log({ "api_result_populateUserProfileNames": result });
+        this.userProfileNames = result;
       }, (err) => {
         console.log({ "api_error_populateUserProfileNames": err });
       }

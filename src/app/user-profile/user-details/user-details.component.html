@@ -1,1 +1,7 @@
 <h1 class="kali-style">user-details works!</h1>
+<div *ngIf="userProfileNames" class="kali-style">
+    <h3>Call userProfile/names API</h3>
+    <ul style="list-style: none;">
+       <li *ngFor="let userProfileName of userProfileNames">- {{userProfileNames}}</li> 
+    </ul>
+</div>

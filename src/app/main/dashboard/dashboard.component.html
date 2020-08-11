@@ -1,1 +1,7 @@
-<h1 class="kali-header">dashboard works!</h1>
+<h1 class="kali-style">dashboard works!</h1>
+<div *ngIf="mainNames" class="kali-style">
+    <h3>Call main/names API</h3>
+    <ul style="list-style: none;">
+       <li *ngFor="let mainName of mainNames">- {{mainName}}</li> 
+    </ul>
+</div>

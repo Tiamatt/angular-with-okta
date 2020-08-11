@@ -20,15 +20,15 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
   private populateMainNames(): void {
     this.mainNames = null;
-    let sub_getAllLockPeriods = this.mainService.GetNames().subscribe(
+    let sub_getNames = this.mainService.GetNames().subscribe(
       (result: string[]) => {
         this.mainNames = result;
         console.log({ "api_result_populateMainNames": result });
-        this.subscriptions.add(sub_getAllLockPeriods);
+        this.subscriptions.add(sub_getNames);
       },
       (err: string) => {
         console.log({ "api_error_populateMainNames": err });
-        this.subscriptions.add(sub_getAllLockPeriods);
+        this.subscriptions.add(sub_getNames);
       },
     );
   }

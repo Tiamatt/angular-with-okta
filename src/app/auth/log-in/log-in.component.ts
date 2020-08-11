@@ -23,7 +23,7 @@ export class LogInComponent implements OnInit {
   }
 
   public onLogin() {
-    this.oktaAuthService.loginRedirect('/sign-up');
+    this.oktaAuthService.loginRedirect('/user-details');
   }
 
   public onLogout() { }

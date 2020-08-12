@@ -1,6 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 @import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700);
 
+$font-family-lobster: 'Lobster', cursive;
+$font-family-oswald: 'Oswald', sans-serif;
+$font-family-roboto: 'Roboto', sans-serif;
+
 body {
 	background-color:#1c2334;
 }
@@ -12,9 +16,26 @@ body:before {
   display: block;
   top: 0px;
   left: 0px;
-  position: fixed;
+  // position: fixed;
 }
 .kali-style{
   color: #fff;
   text-align: center;
+}
+.h1-kali-style {
+  font-family: $font-family-lobster;
+  font-size: 3rem;
+}
+.p-kali-style {
+  font-family: $font-family-oswald;
+  font-size: 1.5rem;
+}
+a.a-kali-style {
+  color: #fff;
+  &:hover {
+    color: #FF7A00;
+  }
+  &:active {
+    color: #610864;
+  }
 }

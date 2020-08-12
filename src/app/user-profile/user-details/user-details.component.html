@@ -1,7 +1,13 @@
-<h1 class="kali-style">user-details works!</h1>
-<div *ngIf="userProfileNames" class="kali-style">
-    <h3>Call userProfile/names API</h3>
-    <ul style="list-style: none;">
-       <li *ngFor="let userProfileName of userProfileNames">- {{userProfileName}}</li> 
-    </ul>
+<div class="kali-style">
+    <h1 class="h1-kali-style">User profile</h1>
+    <h1 class="h1-kali-style">(for authorized users only)</h1>
+    <div *ngIf="userProfileNames" class="kali-style">
+        <p class="p-kali-style">Call userProfile/names API (authorization is required):</p>
+        <ul style="list-style: none;">
+            <li *ngFor="let userProfileName of userProfileNames" class="p-kali-style">- {{userProfileName}}</li> 
+        </ul>
+    </div>
+    <p class="p-kali-style">
+        <a routerLink="/" class="a-kali-style">Back to welcome page</a>
+    </p>
 </div>

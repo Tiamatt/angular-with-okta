@@ -14,13 +14,13 @@ const routes: Routes = [
     path: CALLBACK_PATH,
     component: OktaCallbackComponent,
   },
+  // main section
+  { path: '', pathMatch: 'full', redirectTo: '/welcome'},
+  { path: 'welcome', component: WelcomeComponent, },
+  { path: 'dashboard', component: DashboardComponent, },
   // auth section
-  { path: '', pathMatch: 'full', redirectTo: '/log-in'},
   { path: 'log-in', component: LogInComponent, },
   { path: 'sign-up', component: SignUpComponent, },
-  // main section
-  { path: 'dashboard', component: DashboardComponent, },
-  { path: 'welcome', component: WelcomeComponent, },
   // user-profile section
   { path: 'user-details', component: UserDetailsComponent, canActivate: [OktaAuthGuard], },
   { path: 'user-bio', component: UserBioComponent, canActivate: [OktaAuthGuard], },

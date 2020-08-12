@@ -9,19 +9,18 @@ import { OktaAuthService } from '@okta/okta-angular';
 
 export class WelcomeComponent implements OnInit {
   public userName: string;
+  public isAuthenticated: boolean;
 
   constructor(
     public oktaAuthService: OktaAuthService,
   ) { }
 
   async ngOnInit() {
-    // returns an array of claims
-    const userClaims = await this.oktaAuthService.getUser();
-
-    console.log({'kaliLog': userClaims});
-
-    // user name is exposed directly as property
-    this.userName = userClaims.name;
+    this.isAuthenticated = await this.oktaAuthService.isAuthenticated();
+    if (this.isAuthenticated) {
+      const userClaims = await this.oktaAuthService.getUser();
+      this.userName = userClaims.name;
+    }
   }
 
 }

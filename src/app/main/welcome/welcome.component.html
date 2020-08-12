@@ -1,2 +1,20 @@
-<h1 class="kali-style">welcome works!</h1>
-<h2 class="kali-style">Welcome back, {{ userName }}</h2>
+<div class="kali-style">
+    <!-- if user didn't logged in  -->
+    <div *ngIf="!isAuthenticated">
+        <h1 class="h1-kali-style">Greeting, visitor!</h1>
+        <p class="p-kali-style">
+            If you want to login, <a routerLink="/log-in" class="a-kali-style">click here</a>
+        </p> 
+        <p class="p-kali-style">
+            If you want to see a public dashboard, <a routerLink="/dashboard" class="a-kali-style">then click here</a>
+        </p>
+    </div>
+    <!-- if user logged in  -->
+    <div *ngIf="isAuthenticated">
+        <h1 class="h1-kali-style">Welcome back, {{userName}}</h1>
+        <p class="p-kali-style">Happy surfing!</p>
+        <p class="p-kali-style">
+            If you want to visit your details, <a routerLink="/user-details" class="a-kali-style">then click here</a>
+        </p> 
+    </div>
+</div>

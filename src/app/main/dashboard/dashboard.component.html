@@ -1,7 +1,12 @@
-<h1 class="kali-style">dashboard works!</h1>
-<div *ngIf="mainNames" class="kali-style">
-    <h3>Call main/names API</h3>
-    <ul style="list-style: none;">
-       <li *ngFor="let mainName of mainNames">- {{mainName}}</li> 
-    </ul>
+<div class="kali-style">
+    <h1 class="h1-kali-style">Dashboard</h1>
+    <div *ngIf="mainNames" class="kali-style">
+        <p class="p-kali-style">Call main/names API without authorization:</p>
+        <ul style="list-style: none;">
+            <li *ngFor="let mainName of mainNames" class="p-kali-style">- {{mainName}}</li> 
+        </ul>
+    </div>
+    <p class="p-kali-style">
+        <a routerLink="/" class="a-kali-style">Back to welcome page</a>
+    </p>
 </div>

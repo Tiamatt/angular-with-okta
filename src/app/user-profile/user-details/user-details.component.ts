@@ -18,34 +18,39 @@ export class UserDetailsComponent implements OnInit, OnDestroy {
   private subscriptions = new Subscription();
 
   constructor(
-    private httpClient: HttpClient,
+      private httpClient: HttpClient,
       public oktaAuthService: OktaAuthService,
+      public userProfileService: UserProfileService,
   ) { }
 
   private async populateUserProfileNames() {
-    this.userProfileNames = null;
+    await this.userProfileService.GetNames().then(promise => { promise
+      .subscribe(
+          (result: string[]) => {
+            console.log({ "api_result_populateUserProfileNames": result });
+            this.userProfileNames = result;
+          }, (err) => {
+            console.log({ "api_error_populateUserProfileNames": err });
+          }
+      ); 
+    });
+  }
 
-    let apiUrl = 'https://localhost:44375/api/userProfile/names';
-    const accessToken = await this.oktaAuthService.getAccessToken();
-    let header = {
-      headers: {
-        Authorization: 'Bearer ' + accessToken,
-      }
-    }
-
-    this.httpClient.get(apiUrl, header).subscribe(
-      (result: string[]) => {
-        console.log({ "api_result_populateUserProfileNames": result });
-        this.userProfileNames = result;
-      }, (err) => {
-        console.log({ "api_error_populateUserProfileNames": err });
-      }
-    );
-
+  private async populateUserProfileName(id: number) {
+    await this.userProfileService.GetName(id).then(promise => { promise
+      .subscribe(
+          (result: any) => {
+            console.log({ "api_result_populateUserProfileName": result });
+          }, (err) => {
+            console.log({ "api_error_populateUserProfileName": err });
+          }
+      ); 
+    });
   }
 
   async ngOnInit() {
     await this.populateUserProfileNames();
+    await this.populateUserProfileName(345);
   }
 
   ngOnDestroy() {

@@ -18,7 +18,6 @@ export class UserDetailsComponent implements OnInit, OnDestroy {
   private subscriptions = new Subscription();
 
   constructor(
-      private httpClient: HttpClient,
       public oktaAuthService: OktaAuthService,
       public userProfileService: UserProfileService,
   ) { }
@@ -41,6 +40,7 @@ export class UserDetailsComponent implements OnInit, OnDestroy {
       .subscribe(
           (result: any) => {
             console.log({ "api_result_populateUserProfileName": result });
+            // TODO - use it
           }, (err) => {
             console.log({ "api_error_populateUserProfileName": err });
           }

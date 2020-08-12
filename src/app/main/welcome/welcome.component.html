@@ -3,10 +3,10 @@
     <div *ngIf="!isAuthenticated">
         <h1 class="h1-kali-style">Greeting, visitor!</h1>
         <p class="p-kali-style">
-            If you want to login, <a routerLink="/log-in" class="a-kali-style">click here</a>
+            If you want to login, <a routerLink="/log-in" class="a-kali-style">go to log-in page</a>
         </p> 
         <p class="p-kali-style">
-            If you want to see a public dashboard, <a routerLink="/dashboard" class="a-kali-style">then click here</a>
+            If you want to see a public dashboard, then <a routerLink="/dashboard" class="a-kali-style">go to dashboard page</a>
         </p>
     </div>
     <!-- if user logged in  -->
@@ -16,5 +16,6 @@
         <p class="p-kali-style">
             If you want to visit your details, <a routerLink="/user-details" class="a-kali-style">then click here</a>
         </p> 
+        <button (click)="onLogout()" class="a-kali-style">Logout</button>
     </div>
 </div>

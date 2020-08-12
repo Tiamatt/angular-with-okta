@@ -23,4 +23,7 @@ export class WelcomeComponent implements OnInit {
     }
   }
 
+  public onLogout() {
+    this.oktaAuthService.logout('/welcome');
+  }
 }

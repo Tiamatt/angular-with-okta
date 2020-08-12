@@ -8,6 +8,10 @@ redirects back to your application to ```main/welcome``` component with informat
 
 ## Okta documentation
 Link: https://developer.okta.com/docs/guides/sign-into-spa/angular/before-you-begin/
+Best code source: https://github.com/okta/samples-js-angular
+Check latest code source:
+- GitHub Okta, Inc: https://github.com/okta
+- GitHub Okta Developer: https://github.com/oktadeveloper
 
 ## Dev steps
 
